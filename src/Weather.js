@@ -19,10 +19,10 @@ export default function Weather() {
           </div>
         </div>
       </form>
-      <h1>Pletenberg Bay</h1>
+      <h1>Plettenberg Bay</h1>
       <ul>
         <li>Tuesday 21:29</li>
-        <li>light rain showers</li>
+        <li>Light rain showers</li>
       </ul>
       <div className="row mt-2">
         <div className="col-6">
