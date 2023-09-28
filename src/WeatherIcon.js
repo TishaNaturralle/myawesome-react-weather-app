@@ -1,5 +1,4 @@
 import React from "react";
-import ReactAnimatedWeather from "react-animated-weather";
 
 export default function Weather() {
   const defaults = {
@@ -10,12 +9,10 @@ export default function Weather() {
   };
   return (
     <div className="Weather">
-      <ReactAnimatedWeather
-        icon={defaults.icon}
-        color={defaults.color}
-        size={defaults.size}
-        animate={defaults.animate}
-      />
+      icon={defaults.icon}
+      color={defaults.color}
+      size={defaults.size}
+      animate={defaults.animate}
     </div>
   );
 }
