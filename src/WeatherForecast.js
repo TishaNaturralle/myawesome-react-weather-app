@@ -17,7 +17,7 @@ export default function WeatherForecast(props) {
   }
 
   function load() {
-    let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
+    let apiKey = "73a00877081bd43422bdee0f3022beb5";
     let lon = 34.0;
     let lat = 23.2;
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}`;
