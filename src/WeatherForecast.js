@@ -5,7 +5,7 @@ import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
-  let [forecast, setForecast] = useState(null);
+  let [forecast, setForecast] = useState([]);
 
   useEffect(() => {
     setLoaded(false);
@@ -16,12 +16,10 @@ export default function WeatherForecast(props) {
     setLoaded(true);
   }
 
-  function load() {
-    let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8 ";
-    let lon = 34.0;
-    let lat = 23.2;
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}`;
-    console.log(apiUrl);
+  function handleForecast() {
+    let apiKey = "babc1213f11b9atf604b57efa38oa64c";
+    let city = props.city;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
   }
@@ -31,9 +29,9 @@ export default function WeatherForecast(props) {
       <div className="WeatherForecast">
         <div className="row">
           {forecast.map(function (dailyForecast, index) {
-            if (index < 6 && index > 0) {
+            if (index < 6) {
               return (
-                <div className="col" key={index}>
+                <div className="col-2" key={index}>
                   <WeatherForecastDay data={dailyForecast} />
                 </div>
               );
@@ -45,7 +43,7 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    load();
+    handleForecast();
 
     return null;
   }

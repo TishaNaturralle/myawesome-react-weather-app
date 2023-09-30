@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
-import "./Weather.css";
 
 export default function Weather(props) {
-  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      coordinates: response.data.coordinates,
+
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       date: new Date(response.data.time * 1000),
@@ -19,6 +19,7 @@ export default function Weather(props) {
       icon: response.data.condition.icon,
       wind: response.data.wind.speed,
       city: response.data.condition.city,
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
     });
   }
   function handleSubmit(event) {
@@ -31,7 +32,7 @@ export default function Weather(props) {
   }
 
   function search() {
-    const apiKey = " 2513f3c728b1b5ff4f4347e1a6af22b8";
+    const apiKey = "babc1213f11b9atf604b57efa38oa64c";
     let formattedCity = city.split(" ").join("%20");
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${formattedCity}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
@@ -61,7 +62,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
-        <WeatherForecast coordinates={weatherData.coordinates} />
+        <WeatherForecast city={weatherData.city} />
       </div>
     );
   } else {
