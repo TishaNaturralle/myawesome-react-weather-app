@@ -1,11 +1,12 @@
 import "./App.css";
 import Weather from "./Weather";
+import logo from "./tishaLogo.png";
 
 export default function App() {
   return (
     <div className="App">
       <h3>
-        <img src="/tishaLogo.png" className="logo" />
+        <img src={logo} className="logo" alt="logo-main" />
       </h3>
       <h2>My Weather App</h2>
       <Weather defaultCity="Plettenberg Bay" />
