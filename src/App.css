@@ -11,3 +11,6 @@ h3,
 h2 {
   text-align: center;
 }
+.App logo {
+  block-size: auto;
+}

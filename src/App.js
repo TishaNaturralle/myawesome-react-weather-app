@@ -4,7 +4,9 @@ import Weather from "./Weather";
 export default function App() {
   return (
     <div className="App">
-      <h3>logo</h3>
+      <h3>
+        <img src="/tishaLogo.png" className="logo" />
+      </h3>
       <h2>My Weather App</h2>
       <Weather defaultCity="Plettenberg Bay" />
       <div className="container">
