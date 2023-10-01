@@ -16,14 +16,6 @@ export default function WeatherForecast(props) {
     setLoaded(true);
   }
 
-  function handleForecast() {
-    let apiKey = "babc1213f11b9atf604b57efa38oa64c";
-    let city = props.city;
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(handleResponse);
-  }
-
   if (loaded) {
     return (
       <div className="WeatherForecast">
@@ -31,19 +23,28 @@ export default function WeatherForecast(props) {
           {forecast.map(function (dailyForecast, index) {
             if (index < 6) {
               return (
-                <div className="col-2" key={index}>
+                <div className="col" key={index}>
                   <WeatherForecastDay data={dailyForecast} />
                 </div>
               );
-            } else {
-              return null;
             }
           })}
         </div>
       </div>
     );
   } else {
-    handleForecast();
+    let apiKey = "dt7522ba4c017dfaoc53ab6bcb9a6246";
+    //let apiKey = "babc1213f11b9atf604b57efa38oa64c";
+    //let city = props.city;
+    //let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    //axios.get(apiUrl).then(handleResponse);
+
+    let lon = 34.0;
+    let lat = 23.2;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}`;
+    console.log(apiUrl);
+
+    axios.get(apiUrl).then(handleResponse);
 
     return null;
   }
