@@ -4,6 +4,7 @@ import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props) {
+  console.log(props.city);
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState([]);
 
@@ -17,9 +18,8 @@ export default function WeatherForecast(props) {
   }
 
   function search() {
-    let apiKey = "dt7522ba4c017dfaoc53ab6bcb9a6246";
-    let formattedCity = props.city.split(" ").join("%20");
-
+    let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
+    let formattedCity = encodeURIComponent(props.city);
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${formattedCity}&key=${apiKey}`;
     console.log(apiUrl);
 
