@@ -1,15 +1,17 @@
 import React from "react";
+import ReactAnimatedWeather from "react-animated-weather";
 
-export default function Weather() {
+export default function WeatherIcon() {
   const defaults = {
-    icon: "CLEAR_DAY",
+    icon_url:
+      "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png",
     color: "#facf5a",
     size: 50,
     animate: true,
   };
   return (
     <div className="Weather">
-      <Weather
+      <ReactAnimatedWeather
         icon={defaults.icon}
         color={defaults.color}
         size={defaults.size}
