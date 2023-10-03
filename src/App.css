@@ -12,5 +12,7 @@ h2 {
   text-align: center;
 }
 .App .logo {
-  width: 200px;
+  width: 100px;
+  margin-top: 0;
+  padding: 10px;
 }
